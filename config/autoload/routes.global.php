@@ -8,6 +8,7 @@ return [
         ],
         'factories' => [
             App\Action\HomePageAction::class => App\Action\HomePageFactory::class,
+            Album\Action\HomePageAction::class => Album\Action\HomePageFactory::class
         ],
     ],
 
