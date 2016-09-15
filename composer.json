@@ -46,6 +46,7 @@
         "cs-fix": "phpcbf src --standard=PSR2",
         "serve": "php -S 0.0.0.0:8081 -t public/ public/index.php",
         "test": "phpunit --colors=always",
+        "test-monitor": "node ./node_modules/.bin/watch -p '**/*.php' -c 'phpunit --colors=always'",
         "test-agile": "phpunit --testdox",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
         "upload-coverage": "coveralls -v"
