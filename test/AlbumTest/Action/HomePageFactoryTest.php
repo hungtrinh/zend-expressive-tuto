@@ -16,25 +16,14 @@ class HomePageFactoryTest extends TestCase
         $container = $this->prophesize(ContainerInterface::class);
         $dummyTemplate = $this->prophesize(TemplateRendererInterface::class);
         $container->get(TemplateRendererInterface::class)->willReturn($dummyTemplate);
-        // $container = $this->getMockBuilder(ContainerInterface::class)
-        //                 ->disableOriginalConstructor()
-        //                 ->getMock();
-        // $template = $this->getMockBuilder(TemplateRendererInterface::class)
-        //                 ->disableOriginalConstructor()
-        //                 ->getMock();
-        // $container->expects($this->once())
-        //         ->method('get') 
-        //         ->with($this->equalTo(TemplateRendererInterface::class))
-        //         ->willReturn($template);
-        return $container;
+        return $container->reveal();
     }
 
     public function testInvokeFactoryWillReturnHomePageActionInstance()
     {
         $container = $this->fakeContainer();
         $factory = new HomePageFactory();
-        $homePageAction = $factory($container->reveal());
-
+        $homePageAction = $factory($container);
         $this->assertInstanceOf(
             HomePageAction::class, 
             $homePageAction
