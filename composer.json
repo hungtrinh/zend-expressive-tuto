@@ -23,7 +23,9 @@
     "require-dev": {
         "phpunit/phpunit": "^4.8",
         "squizlabs/php_codesniffer": "^2.3",
-        "filp/whoops": "^1.1 || ^2.0"
+        "filp/whoops": "^1.1 || ^2.0",
+        "symfony/dom-crawler": "^3.1",
+        "symfony/css-selector": "^3.1"
     },
     "autoload": {
         "psr-4": {
@@ -43,10 +45,9 @@
             "@test"
         ],
         "cs": "phpcs",
-        "cs-fix": "phpcbf src --standard=PSR2",
+        "cs-fix": "phpcbf",
         "serve": "php -S 0.0.0.0:8081 -t public/ public/index.php",
         "test": "phpunit --colors=always",
-        "test-monitor": "node ./node_modules/.bin/watch -p '**/*.php' -c 'phpunit --colors=always'",
         "test-agile": "phpunit --testdox",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
         "upload-coverage": "coveralls -v"

@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node ./node_modules/.bin/watch -p '**/*.php' -c 'phpunit --colors=always'"
+    "test": "node ./node_modules/.bin/watch -p '**/*.php' -c 'composer check'"
   },
   "author": "hungtd",
   "license": "ISC",

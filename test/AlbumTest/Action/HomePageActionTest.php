@@ -7,22 +7,29 @@ use Album\Action\HomePageAction;
 use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequest;
 use Zend\Expressive\Template\TemplateRendererInterface;
+use Zend\Diactoros\Response\HtmlResponse;
 
 class HomePageActionTest extends PHPUnit_Framework_TestCase
 {
+    private function createMockTemplate()
+    {
+        $dummyTemplate = $this->prophesize(TemplateRendererInterface::class);
+        $dummyTemplate->render('album::home-page',[])
+            ->willReturn("Anything")
+            ->shouldBeCalled();
+        return $dummyTemplate->reveal();
+    }
+
     public function testResponse()
     {
-        $dummyTemplate = $this->prophesize(TemplateRendererInterface::class)->reveal();
-        $homePageAction = new HomePageAction($dummyTemplate);
+        $template = $this->createMockTemplate();
+        $homePageAction = new HomePageAction($template);
         $response = $homePageAction(
             new ServerRequest(['/album']),
             new Response(),
             function () {
             }
         );
-        $json = json_decode((string) $response->getBody());
-
-        $this->assertNotNull($json->hello);
-        $this->assertEquals('hello hung', $json->hello);
+        $this->assertInstanceOf(HtmlResponse::class, $response);
     }
 }

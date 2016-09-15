@@ -4,7 +4,7 @@ namespace Album\Action;
 
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Zend\Diactoros\Response\JsonResponse;
+use Zend\Diactoros\Response\HtmlResponse;
 use Zend\Expressive\Template\TemplateRendererInterface;
 
 class HomePageAction
@@ -19,13 +19,13 @@ class HomePageAction
      * @param ResponseInterface $response
      * @param callable| null $next
      *
-     * @return JsonResponse
+     * @return HtmlResponse
      */
     public function __invoke(
         ServerRequestInterface $request,
         ResponseInterface $response,
         callable $next = null
     ) {
-        return new JsonResponse(['hello'=>'hello hung']);
+        return new HtmlResponse($this->template->render('album::home-page', []));
     }
 }

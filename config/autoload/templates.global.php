@@ -23,6 +23,7 @@ return [
         ],
         'paths' => [
             'app'    => ['templates/app'],
+            'album'    => ['templates/album'],
             'layout' => ['templates/layout'],
             'error'  => ['templates/error'],
         ],
