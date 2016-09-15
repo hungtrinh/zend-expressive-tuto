@@ -1,0 +1,17 @@
+{
+  "name": "album",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://secure.travis-ci.org/zendframework/zend-expressive-skeleton.svg?branch=master)](https://secure.travis-ci.org/zendframework/zend-expressive-skeleton) [![Coverage Status](https://coveralls.io/repos/github/zendframework/zend-expressive-skeleton/badge.svg?branch=master)](https://coveralls.io/github/zendframework/zend-expressive-skeleton?branch=master)",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node ./node_modules/.bin/watch -p '**/*.php' -c 'phpunit --colors=always'"
+  },
+  "author": "hungtd",
+  "license": "ISC",
+  "dependencies": {
+    "watch-cli": "0.2.1"
+  }
+}
