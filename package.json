@@ -7,11 +7,16 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node ./node_modules/.bin/watch -p '**/*.php' -c 'composer check'"
+    "test": "node ./node_modules/.bin/watch -p '**/*.php' -c 'composer check'",
+    "app-run": "composer run-script serve --timeout=0",
+    "selenium-serve": "java -jar build/tools/selenium-server-standalone-3.0.0-beta3.jar",
+    "e2e": "export PATH=$PATH:build/tools/ && node test/e2e/* | faucet"
   },
   "author": "hungtd",
   "license": "ISC",
   "dependencies": {
+    "selenium-webdriver": "3.0.0-beta-2",
+    "tape": "4.6.0",
     "watch-cli": "0.2.1"
   }
 }

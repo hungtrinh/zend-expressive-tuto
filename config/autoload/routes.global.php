@@ -8,7 +8,7 @@ return [
         ],
         'factories' => [
             App\Action\HomePageAction::class => App\Action\HomePageFactory::class,
-            Album\Action\HomePageAction::class => Album\Action\HomePageFactory::class
+            Album\Action\ListPageAction::class => Album\Action\ListPageFactory::class
         ],
     ],
 
@@ -28,7 +28,7 @@ return [
         [
             'name' => 'album',
             'path' => '/album',
-            'middleware' => Album\Action\HomePageAction::class,
+            'middleware' => Album\Action\ListPageAction::class,
             'allowed_methods' => ['GET']
         ]
     ],

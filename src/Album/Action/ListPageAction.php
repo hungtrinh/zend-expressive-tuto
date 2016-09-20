@@ -26,6 +26,6 @@ class ListPageAction
         ResponseInterface $response,
         callable $next = null
     ) {
-        return new HtmlResponse($this->template->render('album::home-page', []));
+        return new HtmlResponse($this->template->render('album::list-page', []));
     }
 }
