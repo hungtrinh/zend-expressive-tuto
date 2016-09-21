@@ -10,7 +10,7 @@
     "test": "node ./node_modules/.bin/watch -p '**/*.php' -c 'composer check'",
     "app-run": "composer run-script serve --timeout=0",
     "selenium-serve": "java -jar build/tools/selenium-server-standalone-3.0.0-beta3.jar",
-    "e2e": "export PATH=$PATH:build/tools/ && node test/e2e/* | faucet"
+    "e2e": "export PATH=$PATH:build/tools/ && ./node_modules/.bin/tape test/e2e/**/*.js | faucet"
   },
   "author": "hungtd",
   "license": "ISC",
